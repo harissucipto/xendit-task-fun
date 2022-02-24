@@ -19,7 +19,13 @@ migratedown:
 sqlc:
 	sqlc generate
 
+test:
+	go test -v -cover ./...
+
 server:
 	go run main.go
 
-.PHONY: network postgres createdb dropdb migrateup migratedown sqlc server
+mock:
+	mockgen -package mockdb -destination db/mock/store.go github.com/harissucipto/xendit-task/db/sqlc Store
+
+.PHONY: network postgres createdb dropdb migrateup migratedown sqlc test server

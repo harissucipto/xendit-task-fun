@@ -31,24 +31,18 @@ func RandomString(n int) string {
 	return sb.String()
 }
 
-// RandomOwner generates a random owner name
-func RandomOwner() string {
-	return RandomString(6)
-}
-
-// RandomMoney generates a random amount of money
-func RandomMoney() int64 {
-	return RandomInt(0, 1000)
-}
-
-// RandomCurrency generates a random currency code
-func RandomCurrency() string {
-	currencies := []string{"USD", "EUR", "CAD"}
-	n := len(currencies)
-	return currencies[rand.Intn(n)]
-}
-
 // RandomEmail generates a random email
 func RandomEmail() string {
 	return fmt.Sprintf("%s@email.com", RandomString(6))
+}
+
+// RandomComment generates a random comment
+func RandomComment() string {
+	// create random words
+	words := []string{}
+	for i := 0; i < 6; i++ {
+		words = append(words, RandomString(6))
+	}
+	// join words with space
+	return strings.Join(words, " ")
 }
