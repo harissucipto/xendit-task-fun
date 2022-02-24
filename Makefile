@@ -1,5 +1,8 @@
+network:
+	docker network create xendit-network
+
 postgres:
-	docker run --name postgres12xendit -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
+	docker run --name postgres12xendit --network xendit-network -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
 
 createdb:
 	docker exec -it postgres12xendit createdb --username=root --owner=root xendit
@@ -19,4 +22,4 @@ sqlc:
 server:
 	go run main.go
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc server
+.PHONY: network postgres createdb dropdb migrateup migratedown sqlc server
