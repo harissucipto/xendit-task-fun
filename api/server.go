@@ -6,7 +6,7 @@ import (
 	"github.com/harissucipto/xendit-task/util"
 )
 
-// Server servers HTTP requests for our banking services
+// Server servers HTTP requests for our api services
 type Server struct {
 	config util.Config
 	store db.Store 
