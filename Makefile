@@ -8,7 +8,7 @@ createdb:
 	docker exec -it postgres12xendit createdb --username=root --owner=root xendit
 
 dropdb:
-	docker exec -it postgres12 dropdb xendit
+	docker exec -it postgres12xendit dropdb xendit
 
 migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/xendit?sslmode=disable" -verbose up
