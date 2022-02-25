@@ -42,7 +42,7 @@ For the local development make sure to changes the following environment variabl
 
 ```.env
 DB_DRIVER=postgres
-DB_SOURCE=postgresql://root:secret@postgres:5432/simple_bank?sslmode=disable
+DB_SOURCE=postgresql://root:secret@postgres:5432/xendit?sslmode=disable
 SERVER_ADDRESS=0.0.0.0:8080
 GITHUB_ENDPOINT=https://api.github.com
 GITHUB_TOKEN=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
