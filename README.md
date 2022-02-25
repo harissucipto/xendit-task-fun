@@ -14,6 +14,8 @@ In this repo provide APIs to do the following things:
 - DELETE requests to `/orgs/<org-name>/comments` should soft delete all comments associated with a particular organization. We define a "soft delete" to mean that deleted items should not be returned in GET calls, but should remain in the database for emergency retrieval and audit purposes
 - GET requests to `/orgs/<org-name>/members/` should return an array of members of an organization (with their login, avatar url, the numbers of followers they have, and the number of people they're following), sorted in descending order by the number of followers.
 
+you can check the docs for more details at the [docs/api](./docs/api/README.md) folder
+
 ## Running the Service with Docker compose
 
 make sure you have the following environment variables set:
