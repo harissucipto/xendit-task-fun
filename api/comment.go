@@ -8,7 +8,7 @@ import (
 	db "github.com/harissucipto/xendit-task/db/sqlc"
 )
 
-// create comment
+
 type CreateCommentRequestURI struct {
 	OrgName string `uri:"org-name" binding:"required"`
 }
@@ -99,7 +99,7 @@ func (server *Server) listComments(ctx *gin.Context) {
 	}
 
 	respComments := newCommentResponse(comments)
-	ctx.JSON(http.StatusOK, respComments)
+	ctx.JSON(http.StatusCreated, respComments)
 }
 
 
@@ -129,5 +129,5 @@ func (server *Server) deleteComment(ctx *gin.Context) {
 	}
 
 	// sendt ok deleted all comments
-	ctx.JSON(http.StatusOK, gin.H{ "success": "deleted all comments"})
+	ctx.JSON(http.StatusNoContent, gin.H{})
 }
