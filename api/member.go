@@ -29,7 +29,7 @@ func (server *Server) listMembers(ctx *gin.Context) {
 
 	_, err := server.CheckIsValidOrg(requestURI.OrgName)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusNotFound, errorResponse(err))
 		return
 	}
 

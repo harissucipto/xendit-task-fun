@@ -56,6 +56,7 @@ GITHUB_TOKEN=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
 - [Sqlc](https://github.com/kyleconroy/sqlc#installation)
 - [Gomock](https://github.com/golang/mock)
 - [Makefile](https://www.gnu.org/software/make/manual/make.html)
+- [Cypress with NPM for api testing](https://docs.cypress.io)
 
 ### Setup infrastructure
 
@@ -116,3 +117,15 @@ GITHUB_TOKEN=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
   ```bash
   make test
   ```
+
+- Run Testing APIs with Cypress
+
+to test the APIs, we need to run Cypress.
+
+First run server with `make server` to starting our server in local development;
+
+second, navigate to directory folder `testing-apis-with-cypress`;
+
+then run `npm install`
+
+after that run `npm run test` to see the result.

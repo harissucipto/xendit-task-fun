@@ -22,20 +22,38 @@ DELETE requests to /orgs/<org-name>/comments should soft delete all comments ass
 
 ## Error Responses
 
-**Condition** : If there was no Account available to delete.
+**Condition** : If the name organization is not registred towards github.
 
 **Code** : `404 NOT FOUND`
 
-**Content** : `{}`
+**Content** :
+
+```json
+{
+  "error": "org not found"
+}
+```
 
 ### Or
 
-**Condition** : Authorized User is not Owner of Account at URL.
+**Condition** : If the github or github token is not valid.
 
-**Code** : `403 FORBIDDEN`
+**Code** : `404 NOT FOUND`
 
-**Content** : `{}`
+**Content** :
 
-## Notes
+```json
+{ "error": "github api error" }
+```
 
-- Will remove memberships for this Account for all Users that had access.
+### Or
+
+**Condition** : If the user not provided the organization name `/orgs//comments` or the content contstraint is not valid.
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{ "error": "<PROVIDED WHAT SERVER WANT NEEDED OR VALIDATION>" }
+```
